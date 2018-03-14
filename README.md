@@ -4,7 +4,9 @@
 
 Using:
 - Vue CLI
-- Express.js (for serving JSON)
+- Express.js - for serving JSON
+	- Express CORS middleware
+- Nodemon - for watching for server changes
 
 ## Requirements
 

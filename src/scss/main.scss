@@ -1,0 +1,10 @@
+@import 'base/base';
+@import 'base/elements';
+
+body {
+	font-family: $fontFamily;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: $fontSize;
+	color: #2c3e50;
+}
