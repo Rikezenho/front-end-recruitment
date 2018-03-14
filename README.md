@@ -1,11 +1,10 @@
 # front-end-recruitment
 
-> Front-end testing
+> Front-end test
 
 Using:
 - Vue CLI
 - Express.js (for serving JSON)
--
 
 ## Requirements
 
@@ -15,16 +14,16 @@ Using:
 ## How to run the server
 
 Make sure your packages are installed, executing the following commands on your terminal:
-```
+``` bash
 yarn
-- or -
+# or
 npm install
 ```
 
 Then, start the server using:
-```
+``` bash
 yarn run server
-- or -
+# or
 npm run server
 ```
 
@@ -40,5 +39,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
