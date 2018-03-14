@@ -1,23 +1,44 @@
-# Netshoes Cart Test
+# front-end-recruitment
 
-## Expected result
+> Front-end testing
 
-* See a list of products;
-* Be able to add or remove items to the cart and get instant visual feedback;
-* See the products added to the cart.
+Using:
+- Vue CLI
+- Express.js (for serving JSON)
+-
 
-## Data
+## Requirements
 
-The data we provide is a static JSON file under `/public/data`.
+- Node.js
+- NPM/Yarn
 
-## Notes
+## How to run the server
 
-* You can use whatever stack or tooling you want to help you;
-* Feel free to ask us questions during the process (but trust your guts, please!);
-* You should create a static server in order to access the JSON data provided.
+Make sure your packages are installed, executing the following commands on your terminal:
+```
+yarn
+- or -
+npm install
+```
 
-## Bonus
+Then, start the server using:
+```
+yarn run server
+- or -
+npm run server
+```
 
-* Persist data on page reload;
-* Test your code;
-* Instructions on how to build/run the project.
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
