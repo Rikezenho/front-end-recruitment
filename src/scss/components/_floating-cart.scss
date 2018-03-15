@@ -5,7 +5,7 @@
 
 @keyframes animateClose {
 	from { transform: translateX(0); }
-	to { transform: translateY(100%); }
+	to { transform: translateX(100%); }
 }
 
 .floating-cart {
@@ -18,17 +18,18 @@
 	text-align: center;
 	color: #666;
 	transform: translateX(100%);
+	z-index: 9;
 
 	.floating-cart-wrapper {
 		padding: 20px;
 	}
 
 	&.animate-open {
-		animation: animateOpen 0.5s ease;
+		animation: animateOpen 0.5s ease forwards;
 	}
 
 	&.animate-close {
-		animation: animateClose 0.5s ease;
+		animation: animateClose 0.5s ease forwards;
 	}
 }
 
@@ -50,7 +51,6 @@
 			background: $highlightColor;
 			color: #000;
 			font-size: 9px;
-			padding: 5px;
 			width: 19px;
 			height: 19px;
 			line-height: 19px;
@@ -67,8 +67,66 @@
 	text-align: left;
 	border-top: 2px solid #000;
 	border-bottom: 2px solid #000;
-	padding: 20px 0;
+	padding: 10px 0;
 }
+.cart-list-item {
+	position: relative;
+	overflow: hidden;
+
+	.cart-list-actions {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 2;
+
+		.removeItem {
+			&:before {
+				content: '';
+				background: url('http://localhost:8080/static/sprite-delete-icon.png');
+				width: 16px;
+				height: 16px;
+			}
+			&:hover {
+				&:before {
+					background-position: right;
+				}
+			}
+		}
+	}
+
+	.cart-item-image {
+		float: left;
+		width: 20%;
+
+		img {
+			max-width: 100%;
+		}
+	}
+	.cart-item-info {
+		float: left;
+		width: 80%;
+		padding-left: 10px;
+
+		.cart-item-name {
+			color: #fff;
+			font-size: 1.1em;
+		}
+		.cart-item-udas {
+
+		}
+		.cart-item-qtd {
+
+		}
+	}
+	.cart-item-price {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		color: $highlightColor;
+		font-size: 1.2em;
+	}
+}
+
 .cart-resume {
 	overflow: hidden;
 	padding: 20px 0;

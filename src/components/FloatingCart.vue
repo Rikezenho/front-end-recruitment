@@ -1,5 +1,5 @@
 <template>
-	<div class="floating-cart" @addSku="addSku">
+	<div class="floating-cart animate-open" @addSku="addSku">
 		<div class="floating-cart-wrapper">
 			<div class="cart-title">
 				<div class="cart-icon">
@@ -8,8 +8,20 @@
 				Sacola
 			</div>
 			<div class="cart-body">
-				<ul class="cart-list" v-if="items.length">
-					<li v-for="item in items" :key="item.id">
+				<ul class="cart-list">
+					<li class="cart-list-item">
+						<div class="cart-list-actions">
+							<a href="#" class="removeItem"></a>
+						</div>
+						<div class="cart-item-image">
+							<img src="http://placehold.it/200x150" />
+						</div>
+						<div class="cart-item-info">
+							<div class="cart-item-name">Teste da Silva</div>
+							<div class="cart-item-udas">UDA | Uda</div>
+							<div class="cart-item-qtd">Quantidade: <span class="cart-item-qtd-number">1</span></div>
+						</div>
+						<div class="cart-item-price">R$ 149,90</div>
 					</li>
 				</ul>
 			</div>

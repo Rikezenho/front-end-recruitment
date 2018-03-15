@@ -12,11 +12,13 @@
 					<span class="shelf-currency">{{ sku.currencyFormat }}</span>
 					<span class="shelf-value">{{ sku.formattedPrice }}</span>
 				</div>
-				<div class="shelf-installments" v-if="!!sku.installments">
-					<span class="shelf-installments-or">ou</span>
-					<span class="shelf-installments-qtd">{{ sku.installments }}x</span>
-					<span class="shelf-installments-de">de</span>
-					<span class="shelf-installments-price">{{ sku.installmentPrice }}</span>
+				<div class="shelf-installments">
+					<span v-if="!!sku.installments">
+						<span class="shelf-installments-or">ou</span>
+						<span class="shelf-installments-qtd">{{ sku.installments }}x</span>
+						<span class="shelf-installments-de">de</span>
+						<span class="shelf-installments-price">{{ sku.installmentPrice }}</span>
+					</span>
 				</div>
 				<a href="#" :data-sku-id="sku.sku" class="default-btn btn-buy" @click.prevent="addSku">Comprar</a>
 			</div>
