@@ -1,5 +1,12 @@
+$fontFamily: 'Avenir', Helvetica, Arial, sans-serif;
+$highlightColor: #EEBE00;
+$fontSize: 14px;
+
 @import 'base/base';
 @import 'base/elements';
+
+@import 'components/floating-cart';
+@import 'components/shelf';
 
 body {
 	font-family: $fontFamily;
@@ -7,4 +14,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-size: $fontSize;
 	color: #2c3e50;
+}
+
+#app {
+	width: 1190px;
+	margin: 0 auto;
 }

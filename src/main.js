@@ -7,6 +7,6 @@ Vue.use(VueResource);
 Vue.http.options.root = 'http://localhost:3001';
 
 new Vue({
-    el: '#app',
+	el: '#app',
     render: h => h(App),
 });

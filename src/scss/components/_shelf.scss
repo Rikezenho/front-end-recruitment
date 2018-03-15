@@ -1,0 +1,64 @@
+.shelf-wrapper {
+	font-size: 0;
+}
+
+.shelf-item {
+	@include inline-block();
+	width: 25%;
+	font-size: $fontSize;
+	text-align: center;
+
+	.shelf-box {
+		padding: 10px;
+	}
+
+	.shelf-image {
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.shelf-item-name {
+		padding: 20px 0 10px 0;
+		margin-bottom: 10px;
+		position: relative;
+		font-size: 1.1em;
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			background: $highlightColor;
+			height: 2px;
+			width: 10%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.shelf-price {
+
+		.shelf-value {
+			font-size: 1.8em;
+		}
+	}
+
+	.shelf-installments {
+		color: #999;
+	}
+}
+
+.btn-buy {
+	display: block;
+	background: $highlightColor;
+	margin-top: 15px;
+	padding: 15px;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+
+	&:hover {
+		opacity: 0.9;
+	}
+}

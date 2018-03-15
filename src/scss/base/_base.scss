@@ -3,3 +3,8 @@
 *:after {
 	box-sizing: border-box;
 }
+
+@mixin inline-block() {
+	display: inline-block;
+	vertical-align: top;
+}
