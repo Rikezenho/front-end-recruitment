@@ -37,7 +37,7 @@ export default {
 		addSku(event) {
 			let sku = event.target.dataset.skuId;
 			this.$emit('addSku', {
-				skuData: this.getSkuInfo(sku)
+				skuData: this.getSkuInfo(sku),
 			});
 		},
 		getSkuInfo(sku) {

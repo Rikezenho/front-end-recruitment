@@ -8,29 +8,65 @@
 	to { transform: translateX(100%); }
 }
 
-.floating-cart {
+.off-canvas {
 	position: fixed;
 	top: 0;
 	bottom: 0;
 	right: 0;
 	width: 30%;
+	transform: translateX(100%);
+	z-index: 9;
+
+	.floating-cart-toggle {
+		position: absolute;
+		right: 100%;
+		padding: 10px;
+		font-size: 2em;
+		color: #fff;
+		background: #000;
+		cursor: pointer;
+		line-height: 40px;
+		text-align: center;
+
+		&:hover {
+			background: #333;
+		}
+	}
+
+	.floating-cart-toggle:before {
+		content: '';
+		display: block;
+		background: url('http://localhost:8080/static/bag-icon.png');
+		width: 33px;
+		height: 40px;
+	}
+
+	&.openCart {
+		animation: animateOpen 0.5s ease forwards;
+
+		.floating-cart-toggle:before {
+			content: 'X';
+			background: transparent;
+		}
+	}
+
+	&.closeCart {
+		animation: animateClose 0.5s ease forwards;
+	}
+}
+.floating-cart {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	background: #1B1A20;
 	text-align: center;
 	color: #666;
-	transform: translateX(100%);
-	z-index: 9;
 	overflow-y: scroll;
 
 	.floating-cart-wrapper {
 		padding: 20px;
-	}
-
-	&.animate-open {
-		animation: animateOpen 0.5s ease forwards;
-	}
-
-	&.animate-close {
-		animation: animateClose 0.5s ease forwards;
 	}
 }
 

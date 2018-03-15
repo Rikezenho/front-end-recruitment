@@ -19,12 +19,20 @@ export default {
 		FloatingCart,
 	},
 	created() {
+		// this.$on('addSku', ($event) => {
+		// 	console.log('My event has been triggered', $event)
+		// });
+
 		this.service = new ProductsService(this.$resource);
 
 		this.loadCart();
 		this.loadProducts();
 	},
 	methods: {
+		addSku(skuData) {
+			this.items[this.items.length] = skuData;
+			localStorage.setItem('cartItems', this.items);
+		},
 		loadCart() {
 			let getLocalCart = localStorage['cartData'];
 			this.cartItems = getLocalCart || [];
