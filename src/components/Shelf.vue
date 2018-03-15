@@ -18,7 +18,7 @@
 					<span class="shelf-installments-de">de</span>
 					<span class="shelf-installments-price">{{ sku.installmentPrice }}</span>
 				</div>
-				<a href="#" :data-sku-id="sku.sku" class="btn-buy" @click.prevent="addSku">Comprar</a>
+				<a href="#" :data-sku-id="sku.sku" class="default-btn btn-buy" @click.prevent="addSku">Comprar</a>
 			</div>
 		</li>
 	</div>

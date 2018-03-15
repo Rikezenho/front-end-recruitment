@@ -6,3 +6,17 @@ ul {
 	list-style-type: none;
 	padding: 0;
 }
+
+.default-btn {
+	display: block;
+	background: #ccc;
+	margin-top: 15px;
+	padding: 15px;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+
+	&:hover {
+		opacity: 0.9;
+	}
+}

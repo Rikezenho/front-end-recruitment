@@ -2,7 +2,7 @@
     <div id="app">
 		<h1>{{ category }}</h1>
 		<Shelf :skus="products"></Shelf>
-		<FloatingCart></FloatingCart>
+		<FloatingCart :items="cartItems"></FloatingCart>
     </div>
 </template>
 
@@ -20,16 +20,28 @@ export default {
 	},
 	created() {
 		this.service = new ProductsService(this.$resource);
-		this.service.list()
-		.then(response => {
-			this.products = response.products;
-		}, err => {
-			console.log(err.message);
-		});
+
+		this.loadCart();
+		this.loadProducts();
+	},
+	methods: {
+		loadCart() {
+			let getLocalCart = localStorage['cartData'];
+			this.cartItems = getLocalCart || [];
+		},
+		loadProducts() {
+			this.service.list()
+			.then(response => {
+				this.products = response.products;
+			}, err => {
+				console.log(err.message);
+			});
+		}
 	},
     data () {
         return {
 			category: 'Camisas',
+			cartItems: [],
 			products: [],
         };
     },
