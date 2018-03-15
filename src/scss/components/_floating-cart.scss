@@ -19,6 +19,7 @@
 	color: #666;
 	transform: translateX(100%);
 	z-index: 9;
+	overflow-y: scroll;
 
 	.floating-cart-wrapper {
 		padding: 20px;
@@ -37,6 +38,7 @@
 	font-size: 2em;
 	line-height: 40px;
 	padding-bottom: 30px;
+	color: #FFF;
 
 	.cart-icon {
 		display: inline-block;
@@ -45,6 +47,7 @@
 		height: 40px;
 		position: relative;
 		margin-right: 20px;
+		vertical-align: bottom;
 
 		.cart-counter {
 			position: absolute;
@@ -80,16 +83,14 @@
 		z-index: 2;
 
 		.removeItem {
-			&:before {
-				content: '';
-				background: url('http://localhost:8080/static/sprite-delete-icon.png');
-				width: 16px;
-				height: 16px;
-			}
+			cursor: pointer;
+			display: block;
+			background: url('http://localhost:8080/static/sprite_delete-icon.png');
+			width: 15px;
+			height: 14px;
+
 			&:hover {
-				&:before {
-					background-position: right;
-				}
+				background-position: right;
 			}
 		}
 	}
@@ -130,6 +131,7 @@
 .cart-resume {
 	overflow: hidden;
 	padding: 20px 0;
+	font-size: 1.6em;
 
 	.cart-subtotal {
 		float: left;
@@ -137,7 +139,6 @@
 	.cart-subtotal-value {
 		float: right;
 		color: $highlightColor;
-		font-size: 1.6em;
 	}
 }
 .cart-goToCheckout {
