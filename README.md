@@ -3,11 +3,12 @@
 > Front-end test
 
 Using:
-- Vue CLI
-- Vue Resource
-- Vuex
+- Vue
+	- Vue CLI - for scaffolding project and webpack
+	- Vue Resource - for HTTP requests
+	- Vuex - for state management
 - Express.js - for serving JSON
-	- Express CORS middleware
+	- Express CORS Middleware
 - Nodemon - for watching for server changes
 
 ## Requirements
