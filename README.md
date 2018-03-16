@@ -7,6 +7,7 @@ Using:
 	- Vue CLI - for scaffolding project and webpack
 	- Vue Resource - for HTTP requests
 	- Vuex - for state management
+- Native LocalStorage API - for data persistence
 - Express.js - for serving JSON
 	- Express CORS Middleware
 - Nodemon - for watching for server changes
