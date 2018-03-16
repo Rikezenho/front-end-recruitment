@@ -2,7 +2,7 @@
     <div id="app">
 		<h1>{{ category }}</h1>
 		<Shelf :skus="products"></Shelf>
-		<FloatingCart :items="cartItems"></FloatingCart>
+		<FloatingCart></FloatingCart>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
 import Shelf from './components/Shelf.vue';
 import FloatingCart from './components/FloatingCart.vue';
 
-import ProductsService from './domain/Products/ProductsService';
+import ProductsService from './domain/products/ProductsService';
 
 export default {
     name: 'app',
@@ -19,24 +19,11 @@ export default {
 		FloatingCart,
 	},
 	created() {
-		this.$on('addSku', ($event) => {
-			console.log('My event has been triggered', $event)
-		});
-
 		this.service = new ProductsService(this.$resource);
 
-		this.loadCart();
 		this.loadProducts();
 	},
 	methods: {
-		addSku(skuData) {
-			this.items[this.items.length] = skuData;
-			localStorage.setItem('cartItems', this.items);
-		},
-		loadCart() {
-			let getLocalCart = localStorage['cartData'];
-			this.cartItems = getLocalCart || [];
-		},
 		loadProducts() {
 			this.service.list()
 			.then(response => {
@@ -49,7 +36,6 @@ export default {
     data () {
         return {
 			category: 'Camisas',
-			cartItems: [],
 			products: [],
         };
     },

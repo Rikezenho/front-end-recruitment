@@ -104,17 +104,26 @@
 }
 .cart-body {
 	text-align: left;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
 	padding: 10px 0;
+}
+
+.cart-list {
+	border-top: 2px solid #000;
+	padding-top: 10px;
 }
 .cart-list-item {
 	position: relative;
 	overflow: hidden;
+	padding: 20px 0;
+	border-bottom: 1px solid #444;
+
+	&:last-child {
+		border-bottom: 0;
+	}
 
 	.cart-list-actions {
 		position: absolute;
-		top: 0;
+		top: 10px;
 		right: 0;
 		z-index: 2;
 
@@ -157,7 +166,7 @@
 	}
 	.cart-item-price {
 		position: absolute;
-		bottom: 0;
+		bottom: 10px;
 		right: 0;
 		color: $highlightColor;
 		font-size: 1.2em;
@@ -168,6 +177,9 @@
 	overflow: hidden;
 	padding: 20px 0;
 	font-size: 1.6em;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	padding: 20px 0;
 
 	.cart-subtotal {
 		float: left;
@@ -180,7 +192,21 @@
 .cart-goToCheckout {
 
 	.goToCheckout-btn {
+		text-align: center;
 		background: #000;
 		color: #FFF;
+	}
+}
+
+
+@media (max-width: 1190px) {
+	.off-canvas {
+		width: 45%;
+	}
+}
+
+@media (max-width: 768px) {
+	.off-canvas {
+		width: 80%;
 	}
 }

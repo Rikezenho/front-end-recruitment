@@ -7,7 +7,6 @@
 			{{ sku.title }}
 		</div>
 		<div class="shelf-price">
-			<span class="shelf-currency">{{ sku.currencyFormat }}</span>
 			<span class="shelf-value">{{ sku.formattedPrice }}</span>
 		</div>
 		<div class="shelf-installments">
@@ -34,17 +33,15 @@ export default {
 		this.formatSku();
 	},
 	methods: {
-		addSku(event) {
-			let sku = event.target.dataset.skuId;
-			this.$emit('addSku', {
-				skuData: this.getSkuInfo(sku),
-			});
-		},
-		getSkuInfo(sku) {
-			return this.sku;
+		addSku($event) {
+			let sku = $event.target.dataset.skuId;
+			this.$store.dispatch('addSku', this.sku);
 		},
 		formatSku() {
-			this.sku.formattedPrice = this.sku.price.toLocaleString('pt-BR');
+			this.sku.formattedPrice = this.sku.price.toLocaleString('pt-BR', {
+				style: 'currency',
+				currency: 'BRL',
+			});
 
 			if (!!this.sku.installments) {
 				this.sku.installmentPrice = (this.sku.price / this.sku.installments).toLocaleString('pt-BR', {

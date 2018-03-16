@@ -53,3 +53,29 @@
 .btn-buy {
 	background: $highlightColor;
 }
+
+
+@media (max-width: 1190px) {
+	.shelf-item {
+		width: 33.333%;
+
+		.shelf-image {
+			img {
+				max-width: 80%;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.shelf-item {
+		display: block;
+		width: auto;
+
+		.shelf-image {
+			img {
+				max-width: 60%;
+			}
+		}
+	}
+}
