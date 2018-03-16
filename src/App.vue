@@ -19,9 +19,9 @@ export default {
 		FloatingCart,
 	},
 	created() {
-		// this.$on('addSku', ($event) => {
-		// 	console.log('My event has been triggered', $event)
-		// });
+		this.$on('addSku', ($event) => {
+			console.log('My event has been triggered', $event)
+		});
 
 		this.service = new ProductsService(this.$resource);
 

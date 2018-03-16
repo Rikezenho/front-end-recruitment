@@ -41,6 +41,7 @@
 
 <script>
 export default {
+	name: 'FloatingCart',
 	props: {
 		items: {
 			required: true
