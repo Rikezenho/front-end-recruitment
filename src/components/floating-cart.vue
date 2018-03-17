@@ -15,7 +15,7 @@
 					<ul class="cart-list">
 						<li class="cart-list-item" v-for="sku in cartItems" :key="sku.id" :data-sku-id="sku.sku" :class="{ removing: (removing[sku.sku] === true) }">
 							<div class="cart-list-actions">
-								<a href="#" class="removeItem" :data-sku-id="sku.sku" @click.prevent="removeSku"></a>
+								<a href="#" class="removeItem" title="Remover da sacola" :data-sku-id="sku.sku" @click.prevent="removeSku"></a>
 							</div>
 							<div class="cart-item-image">
 								<img :src="`./static/products/${sku.sku}_2.jpg`" />
