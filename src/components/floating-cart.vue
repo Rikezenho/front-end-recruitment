@@ -1,6 +1,8 @@
 <template>
 	<div class="off-canvas" v-bind:class="{ openCart: (opened === true), closeCart: (opened === false) }">
-		<div class="floating-cart-toggle" @click="opened = !opened"></div>
+		<div class="floating-cart-toggle" @click="opened = !opened">
+			<div class="cart-counter">{{ cartItemsQty }}</div>
+		</div>
 		<div class="floating-cart">
 			<div class="floating-cart-wrapper">
 				<div class="cart-title">

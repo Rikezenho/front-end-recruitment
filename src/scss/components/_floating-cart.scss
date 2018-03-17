@@ -28,26 +28,38 @@
 		line-height: 40px;
 		text-align: center;
 
+		.cart-counter {
+			top: 10px;
+			left: 50%;
+		}
+
 		&:hover {
 			background: #333;
 		}
-	}
 
-	.floating-cart-toggle:before {
-		content: '';
-		display: block;
-		background: url('http://localhost:8080/static/bag-icon.png');
-		width: 33px;
-		height: 40px;
+		&:before {
+			content: '';
+			display: block;
+			background: url('http://localhost:8080/static/bag-icon.png');
+			width: 33px;
+			height: 40px;
+		}
 	}
 
 	&.openCart {
 		animation: animateOpen 0.5s ease forwards;
 
-		.floating-cart-toggle:before {
-			content: 'X';
-			background: transparent;
+		.floating-cart-toggle {
+			.cart-counter {
+				display: none;
+			}
+
+			&:before {
+				content: 'X';
+				background: transparent;
+			}
 		}
+
 	}
 
 	&.closeCart {
@@ -70,6 +82,21 @@
 	}
 }
 
+.cart-counter {
+	position: absolute;
+	background: $highlightColor;
+	color: #000;
+	font-size: 9px;
+	width: 19px;
+	height: 19px;
+	line-height: 19px;
+	border-radius: 50%;
+	text-align: center;
+	font-weight: bold;
+	left: 75%;
+	top: 0;
+}
+
 .cart-title {
 	font-size: 2em;
 	line-height: 40px;
@@ -84,22 +111,6 @@
 		position: relative;
 		margin-right: 20px;
 		vertical-align: bottom;
-
-		.cart-counter {
-			position: absolute;
-			background: $highlightColor;
-			color: #000;
-			font-size: 9px;
-			width: 19px;
-			height: 19px;
-			line-height: 19px;
-			border-radius: 50%;
-			text-align: center;
-			font-weight: bold;
-			left: 75%;
-			top: 0;
-
-		}
 	}
 }
 .cart-body {
@@ -108,21 +119,24 @@
 }
 
 .cart-list {
-	border-top: 2px solid #000;
-	padding-top: 10px;
+	margin: 0;
 }
 .cart-list-item {
 	position: relative;
 	overflow: hidden;
-	padding: 20px 0;
+	padding: 30px 10px;
 	border-bottom: 1px solid #444;
 	transition: opacity 0.3s ease;
 
+	&:first-child {
+		border-top: 2px solid #000;
+	}
 	&:last-child {
 		border-bottom: 0;
 	}
 
 	&.removing {
+		background: #000;
 		opacity: 0.4;
 
 		* {
@@ -132,8 +146,8 @@
 
 	.cart-list-actions {
 		position: absolute;
-		top: 10px;
-		right: 0;
+		top: 20px;
+		right: 10px;
 		z-index: 2;
 
 		.removeItem {
@@ -176,8 +190,8 @@
 	}
 	.cart-item-price {
 		position: absolute;
-		bottom: 10px;
-		right: 0;
+		bottom: 20px;
+		right: 10px;
 		color: $highlightColor;
 		font-size: 1.2em;
 	}
@@ -185,11 +199,9 @@
 
 .cart-resume {
 	overflow: hidden;
-	padding: 20px 0;
 	font-size: 1.6em;
 	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
-	padding: 20px 0;
+	padding: 20px 0 10px 0;
 
 	.cart-subtotal {
 		float: left;
