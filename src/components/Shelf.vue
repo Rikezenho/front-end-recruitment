@@ -1,18 +1,18 @@
 <template>
 	<div class="shelf-wrapper">
 		<li class="shelf-item" v-for="sku of skus" :key="sku.id">
-			<ShelfItem :sku="sku"></ShelfItem>
+			<shelf-item :sku="sku"></shelf-item>
 		</li>
 	</div>
 </template>
 
 <script>
-import ShelfItem from './ShelfItem.vue';
+import ShelfItem from './shelf-item.vue';
 
 export default {
 	name: 'Shelf',
 	components: {
-		ShelfItem,
+		'shelf-item': ShelfItem,
 	},
 	props: {
 		skus: {

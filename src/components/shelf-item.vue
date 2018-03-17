@@ -1,7 +1,7 @@
 <template>
 	<div class="shelf-box" :data-sku-id="sku.sku">
 		<div class="shelf-image">
-			<img src="http://placehold.it/450x575" />
+			<img :src="`./static/products/${sku.sku}_1.jpg`" />
 		</div>
 		<div class="shelf-item-name">
 			{{ sku.title }}
@@ -38,16 +38,10 @@ export default {
 			this.$store.dispatch('addSku', this.sku);
 		},
 		formatSku() {
-			this.sku.formattedPrice = this.sku.price.toLocaleString('pt-BR', {
-				style: 'currency',
-				currency: 'BRL',
-			});
+			this.sku.formattedPrice = this.toCurrency(this.sku.price);
 
 			if (!!this.sku.installments) {
-				this.sku.installmentPrice = (this.sku.price / this.sku.installments).toLocaleString('pt-BR', {
-					style: 'currency',
-					currency: 'BRL',
-				});
+				this.sku.installmentPrice = this.toCurrency(this.sku.price / this.sku.installments);
 			}
 		}
 	},

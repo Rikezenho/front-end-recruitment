@@ -3,7 +3,7 @@
 > Front-end test
 
 Using:
-- Vue
+- Vue.js 2
 	- Vue CLI - for scaffolding project and webpack
 	- Vue Resource - for HTTP requests
 	- Vuex - for state management

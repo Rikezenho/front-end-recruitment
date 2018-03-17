@@ -1,10 +1,20 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './app.vue';
 
 import VueResource from 'vue-resource';
 import Vuex from 'vuex';
 
-import store from './store/store';
+import store from './store';
+// import utils from './utils';
+
+Vue.mixin({
+	methods: {
+		toCurrency: value => value.toLocaleString('pt-BR', {
+			style: 'currency',
+			currency: 'BRL',
+		}),
+	}
+});
 
 Vue.use(VueResource);
 Vue.use(Vuex);

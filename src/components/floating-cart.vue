@@ -16,7 +16,7 @@
 								<a href="#" class="removeItem" :data-sku-id="sku.sku" @click.prevent="removeSku"></a>
 							</div>
 							<div class="cart-item-image">
-								<img src="http://placehold.it/200x150" />
+								<img :src="`./static/products/${sku.sku}_2.jpg`" />
 							</div>
 							<div class="cart-item-info">
 								<div class="cart-item-name">{{ sku.title }}</div>
@@ -28,7 +28,10 @@
 					</ul>
 					<div class="cart-resume">
 						<div class="cart-subtotal">Subtotal</div>
-						<div class="cart-subtotal-value">{{ cartTotalFormatted }}</div>
+						<div class="cart-subtotal-value">
+							<div class="cart-subtotal-price">{{ cartTotalFormatted }}</div>
+							<div class="cart-subtotal-installments">ou em até {{ qtyInstallments }}x de {{ totalInstallmentsFormatted }}</div>
+						</div>
 					</div>
 					<div class="cart-goToCheckout">
 						<a href="#" class="default-btn goToCheckout-btn">Finalizar compra</a>
@@ -47,29 +50,24 @@ export default {
 	name: 'FloatingCart',
 	created() {
 		this.cartItems = this.$store.getters.cartItems;
-
-		this.cartItemsQty = this.getCartItems();
-		this.cartTotal = this.getCartSubtotal();
-		this.cartTotalFormatted = this.cartTotal.toLocaleString('pt-BR', {
-			style: 'currency',
-			currency: 'BRL',
-		});
+		this.updateVars();
 
 		this.$store.subscribe((mutation, state) => {
 			if (mutation.type == 'ADD_SKU' || mutation.type == 'REMOVE_SKU') {
-				this.cartItemsQty = this.getCartItems();
-				this.cartItems = state.cartItems;
 				this.opened = true;
-
-				this.cartTotal = this.getCartSubtotal();
-				this.cartTotalFormatted = this.cartTotal.toLocaleString('pt-BR', {
-					style: 'currency',
-					currency: 'BRL',
-				});
+				this.updateVars();
 			}
 		});
 	},
 	methods: {
+		updateVars() {
+			this.cartItemsQty = this.getCartItems();
+			this.cartTotal = this.getCartSubtotal();
+			this.cartTotalFormatted = this.toCurrency(this.cartTotal);
+
+			this.totalInstallments = this.cartTotal / this.qtyInstallments;
+			this.totalInstallmentsFormatted = this.toCurrency(this.totalInstallments);
+		},
 		getCartSubtotal() {
 			let totalValue = 0;
 
@@ -88,8 +86,11 @@ export default {
 			return counter;
 		},
 		removeSku($event) {
-			let sku = event.target.dataset.skuId;
-			this.$store.dispatch('removeSku', sku);
+			let sku = $event.target.dataset.skuId;
+			$event.target.classList.add('removing');
+			setTimeout(() => {
+				this.$store.dispatch('removeSku', sku);
+			}, 1000);
 		}
 	},
 	data () {
@@ -98,6 +99,8 @@ export default {
 			cartItems: [],
 			cartTotal: 0,
 			cartTotalFormatted: 'R$ 0,00',
+			qtyInstallments: 10,
+			totalInstallments: 0,
 			opened: '',
 		};
 	},

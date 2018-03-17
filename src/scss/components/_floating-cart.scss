@@ -116,9 +116,18 @@
 	overflow: hidden;
 	padding: 20px 0;
 	border-bottom: 1px solid #444;
+	transition: opacity 0.3s ease;
 
 	&:last-child {
 		border-bottom: 0;
+	}
+
+	&.removing {
+		opacity: 0.4;
+
+		* {
+			text-decoration: line-through;
+		}
 	}
 
 	.cart-list-actions {
@@ -156,6 +165,7 @@
 		.cart-item-name {
 			color: #fff;
 			font-size: 1.1em;
+			line-height: 1.6;
 		}
 		.cart-item-udas {
 
@@ -186,7 +196,16 @@
 	}
 	.cart-subtotal-value {
 		float: right;
+		text-align: right;
+	}
+	.cart-subtotal-price {
 		color: $highlightColor;
+		padding-bottom: 5px;
+	}
+	.cart-subtotal-installments {
+		text-transform: uppercase;
+		color: #666;
+		font-size: 0.55em;
 	}
 }
 .cart-goToCheckout {
