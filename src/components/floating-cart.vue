@@ -1,5 +1,5 @@
 <template>
-	<div class="off-canvas" v-bind:class="{ openCart: (opened === true), closeCart: (opened === false) }">
+	<div class="off-canvas" :class="{ openCart: (opened === true), closeCart: (opened === false) }">
 		<div class="floating-cart-toggle" @click="opened = !opened">
 			<div class="cart-counter">{{ cartItemsQty }}</div>
 		</div>
@@ -13,7 +13,7 @@
 				</div>
 				<div class="cart-body" v-if="!!cartItems.length">
 					<ul class="cart-list">
-						<li class="cart-list-item" v-for="sku in cartItems" :key="sku.id" :data-sku-id="sku.sku" v-bind:class="{ removing: (removing[sku.sku] === true) }">
+						<li class="cart-list-item" v-for="sku in cartItems" :key="sku.id" :data-sku-id="sku.sku" :class="{ removing: (removing[sku.sku] === true) }">
 							<div class="cart-list-actions">
 								<a href="#" class="removeItem" :data-sku-id="sku.sku" @click.prevent="removeSku"></a>
 							</div>
