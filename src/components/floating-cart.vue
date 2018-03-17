@@ -11,7 +11,7 @@
 				</div>
 				<div class="cart-body" v-if="!!cartItems.length">
 					<ul class="cart-list">
-						<li class="cart-list-item" v-for="sku in cartItems" :key="sku.id">
+						<li class="cart-list-item" v-for="sku in cartItems" :key="sku.id" :data-sku-id="sku.sku" v-bind:class="{ removing: (removing[sku.sku] === true) }">
 							<div class="cart-list-actions">
 								<a href="#" class="removeItem" :data-sku-id="sku.sku" @click.prevent="removeSku"></a>
 							</div>
@@ -87,10 +87,12 @@ export default {
 		},
 		removeSku($event) {
 			let sku = $event.target.dataset.skuId;
-			$event.target.classList.add('removing');
+			this.$set(this.removing, sku, true);
+
 			setTimeout(() => {
 				this.$store.dispatch('removeSku', sku);
-			}, 1000);
+				this.$set(this.removing, sku, undefined);
+			}, 800);
 		}
 	},
 	data () {
@@ -99,6 +101,7 @@ export default {
 			cartItems: [],
 			cartTotal: 0,
 			cartTotalFormatted: 'R$ 0,00',
+			removing: {},
 			qtyInstallments: 10,
 			totalInstallments: 0,
 			opened: '',
