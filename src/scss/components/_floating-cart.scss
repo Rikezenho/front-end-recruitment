@@ -40,7 +40,7 @@
 		&:before {
 			content: '';
 			display: block;
-			background: url('http://localhost:8080/static/bag-icon.png');
+			background: url('../static/bag-icon.png');
 			width: 33px;
 			height: 40px;
 		}
@@ -105,7 +105,7 @@
 
 	.cart-icon {
 		display: inline-block;
-		background: url('http://localhost:8080/static/bag-icon.png');
+		background: url('../static/bag-icon.png');
 		width: 33px;
 		height: 40px;
 		position: relative;
