@@ -17,7 +17,7 @@ Using:
 - Node.js
 - NPM/Yarn
 
-## How to use
+## Getting started
 
 Make sure your packages are installed, executing the following commands on your terminal:
 ``` bash
@@ -25,14 +25,16 @@ yarn
 # or
 npm install
 ```
-### First, run the API server
 
-Then, start the server using:
+### Now, run the API server
+
+Start the server using:
 ``` bash
 yarn run server
 # or
 npm run server
 ```
+It will start the API server, serving a JSON data on `http://localhost:3001/api/products`. Keep the API server up, because these data are necessary to the application to work.
 
 ### Then, run the webpack dev server
 
@@ -42,6 +44,7 @@ yarn run dev
 # or
 npm run dev
 ```
+When ready, your browser will automatically open a new tab with the app running.
 
 ### Or, bundle all the assets
 
@@ -51,3 +54,4 @@ yarn run build
 # or
 npm run build
 ```
+Bundling all the assets, you'll need a webserver to view the app. You can use `live-server`, `http-server`, or any other; only install using `npm install` or `yarn add` and start it using the package name as the command.
